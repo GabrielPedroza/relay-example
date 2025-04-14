@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<30eaa553a6acde39305cf67a23d323ee>>
+ * @generated SignedSource<<ea0ee3cbfec7d376648f2c9557072930>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -12,14 +12,12 @@ import { Fragment, ReaderFragment } from 'relay-runtime';
 import { FragmentRefs } from "relay-runtime";
 export type StoryFragment$data = {
   readonly createdAt: string;
-  readonly poster: {
-    readonly " $fragmentSpreads": FragmentRefs<"PosterBylineFragment">;
-  };
   readonly summary: string | null;
   readonly thumbnail: {
     readonly " $fragmentSpreads": FragmentRefs<"ImageFragment">;
   } | null;
   readonly title: string;
+  readonly " $fragmentSpreads": FragmentRefs<"PosterBylineFragment" | "StoryCommentsSectionFragment" | "StoryLikeButtonFragment">;
   readonly " $fragmentType": "StoryFragment";
 };
 export type StoryFragment$key = {
@@ -57,22 +55,6 @@ const node: ReaderFragment = {
     {
       "alias": null,
       "args": null,
-      "concreteType": null,
-      "kind": "LinkedField",
-      "name": "poster",
-      "plural": false,
-      "selections": [
-        {
-          "args": null,
-          "kind": "FragmentSpread",
-          "name": "PosterBylineFragment"
-        }
-      ],
-      "storageKey": null
-    },
-    {
-      "alias": null,
-      "args": null,
       "concreteType": "Image",
       "kind": "LinkedField",
       "name": "thumbnail",
@@ -83,7 +65,7 @@ const node: ReaderFragment = {
             {
               "kind": "Literal",
               "name": "width",
-              "value": 400
+              "value": 500
             }
           ],
           "kind": "FragmentSpread",
@@ -91,12 +73,27 @@ const node: ReaderFragment = {
         }
       ],
       "storageKey": null
+    },
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "PosterBylineFragment"
+    },
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "StoryCommentsSectionFragment"
+    },
+    {
+      "args": null,
+      "kind": "FragmentSpread",
+      "name": "StoryLikeButtonFragment"
     }
   ],
   "type": "Story",
   "abstractKey": null
 };
 
-(node as any).hash = "779b222c2da4e07d32eef85f18a36314";
+(node as any).hash = "b348e5b3d5dfc97e70f805984bca9549";
 
 export default node;
