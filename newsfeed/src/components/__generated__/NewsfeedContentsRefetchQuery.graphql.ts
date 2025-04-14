@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<35ef26709c05f1e6a22130e8fca4c8a3>>
+ * @generated SignedSource<<7f4e0e037efecb180935b46fb56eea25>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -420,11 +420,11 @@ return {
             "plural": true,
             "selections": [
               (v4/*: any*/),
-              (v2/*: any*/),
               {
                 "kind": "TypeDiscriminator",
                 "abstractKey": "__isActor"
               },
+              (v2/*: any*/),
               (v5/*: any*/),
               {
                 "alias": null,
@@ -448,12 +448,12 @@ return {
     ]
   },
   "params": {
-    "cacheID": "d674b594e1369457fd3ec70715f25a2c",
+    "cacheID": "23189c1022599d800c3ff6e154943f60",
     "id": null,
     "metadata": {},
     "name": "NewsfeedContentsRefetchQuery",
     "operationKind": "query",
-    "text": "query NewsfeedContentsRefetchQuery(\n  $count: Int = 3\n  $cursor: String\n) {\n  ...NewsfeedContentsFragment_1G22uz\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment on Viewer {\n  contacts {\n    __typename\n    id\n    ...ContactRowFragment\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n  altText\n}\n\nfragment ImageFragment_1Vo4bL on Image {\n  url(width: 500)\n  altText\n}\n\nfragment ImageFragment_2WH1w9 on Image {\n  url(width: 800, height: 500)\n  altText\n}\n\nfragment NewsfeedContentsFragment_1G22uz on Query {\n  viewer {\n    newsfeedStories(after: $cursor, first: $count) {\n      edges {\n        node {\n          id\n          ...StoryFragment\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n    ...SidebarFragment\n  }\n}\n\nfragment PosterBylineFragment on Story {\n  poster {\n    __typename\n    id\n    name\n    profilePicture {\n      ...ImageFragment_2WH1w9\n    }\n  }\n}\n\nfragment SidebarFragment on Viewer {\n  ...ViewerProfileFragment\n  ...ContactsListFragment\n}\n\nfragment StoryCommentsComposerFragment on Story {\n  id\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    pageInfo {\n      startCursor\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n  }\n  ...StoryCommentsComposerFragment\n  id\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  thumbnail {\n    ...ImageFragment_1Vo4bL\n  }\n  ...PosterBylineFragment\n  ...StoryCommentsSectionFragment\n  ...StoryLikeButtonFragment\n}\n\nfragment StoryLikeButtonFragment on Story {\n  id\n  likeCount\n  doesViewerLike\n}\n\nfragment ViewerProfileFragment on Viewer {\n  actor {\n    __typename\n    name\n    profilePicture {\n      url\n    }\n    id\n  }\n}\n"
+    "text": "query NewsfeedContentsRefetchQuery(\n  $count: Int = 3\n  $cursor: String\n) {\n  ...NewsfeedContentsFragment_1G22uz\n}\n\nfragment CommentFragment on Comment {\n  text\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment on Viewer {\n  contacts {\n    __typename\n    ...ContactsList_contacts\n    id\n  }\n}\n\nfragment ContactsList_contacts on Actor {\n  __isActor: __typename\n  id\n  ...ContactRowFragment\n}\n\nfragment ImageFragment on Image {\n  url\n  altText\n}\n\nfragment ImageFragment_1Vo4bL on Image {\n  url(width: 500)\n  altText\n}\n\nfragment ImageFragment_2WH1w9 on Image {\n  url(width: 800, height: 500)\n  altText\n}\n\nfragment NewsfeedContentsFragment_1G22uz on Query {\n  viewer {\n    newsfeedStories(after: $cursor, first: $count) {\n      edges {\n        node {\n          id\n          ...StoryFragment\n          __typename\n        }\n        cursor\n      }\n      pageInfo {\n        endCursor\n        hasNextPage\n      }\n    }\n    ...SidebarFragment\n  }\n}\n\nfragment PosterBylineFragment on Story {\n  poster {\n    __typename\n    id\n    name\n    profilePicture {\n      ...ImageFragment_2WH1w9\n    }\n  }\n}\n\nfragment SidebarFragment on Viewer {\n  ...ViewerProfileFragment\n  ...ContactsListFragment\n}\n\nfragment StoryCommentsComposerFragment on Story {\n  id\n}\n\nfragment StoryCommentsSectionFragment on Story {\n  comments(first: 3) {\n    pageInfo {\n      startCursor\n      hasNextPage\n      endCursor\n    }\n    edges {\n      node {\n        id\n        ...CommentFragment\n        __typename\n      }\n      cursor\n    }\n  }\n  ...StoryCommentsComposerFragment\n  id\n}\n\nfragment StoryFragment on Story {\n  title\n  summary\n  createdAt\n  thumbnail {\n    ...ImageFragment_1Vo4bL\n  }\n  ...PosterBylineFragment\n  ...StoryCommentsSectionFragment\n  ...StoryLikeButtonFragment\n}\n\nfragment StoryLikeButtonFragment on Story {\n  id\n  likeCount\n  doesViewerLike\n}\n\nfragment ViewerProfileFragment on Viewer {\n  actor {\n    __typename\n    name\n    profilePicture {\n      url\n    }\n    id\n  }\n}\n"
   }
 };
 })();

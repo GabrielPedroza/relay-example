@@ -2,6 +2,7 @@ import * as React from "react";
 import { graphql } from "relay-runtime";
 import { useFragment, useRefetchableFragment } from "react-relay";
 import type { ContactsListFragment$key } from "./__generated__/ContactsListFragment.graphql";
+import type { ContactsList_contacts$key } from "./__generated__/ContactsList_contacts.graphql";
 import Card from "./Card";
 import ContactRow from "./ContactRow";
 import SearchInput from "./SearchInput";
@@ -18,8 +19,7 @@ const ContactsListFragment = graphql`
     )
   {
     contacts(search: $search) {
-      id
-      ...ContactRowFragment
+      ...ContactsList_contacts
     }
   }
 `;
@@ -27,6 +27,16 @@ const ContactsListFragment = graphql`
 export default function ContactsList({ viewer }: Props) {
   const [isPending, startTransition] = React.useTransition()
   const [data, refetch] = useRefetchableFragment(ContactsListFragment, viewer)
+  const ContactsList_contacts = graphql`
+    fragment ContactsList_contacts on Actor
+    @relay(plural: true)
+    {
+      id
+      ...ContactRowFragment
+    }
+`;
+  const contacts = useFragment<ContactsList_contacts$key>(ContactsList_contacts, data.contacts)
+
   const [searchString, setSearchString] = React.useState("")
   const onSearchStringChanged = (value: string) => {
     setSearchString(value)
@@ -38,7 +48,7 @@ export default function ContactsList({ viewer }: Props) {
     <Card dim={true}>
       <h3>Contacts</h3>
       <SearchInput onChange={onSearchStringChanged} isPending={isPending} value={searchString} />
-      {data.contacts.map((contact) => (
+      {contacts.map((contact) => (
         <ContactRow key={contact.id} contact={contact} />
       ))}
     </Card>

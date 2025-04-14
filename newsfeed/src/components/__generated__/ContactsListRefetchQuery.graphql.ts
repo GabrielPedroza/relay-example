@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<fca14201bdf4b9e18101f543b4ad7cac>>
+ * @generated SignedSource<<60a0de831d0bb9d73e3c262a8212f4df>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -95,15 +95,15 @@ return {
                 "storageKey": null
               },
               {
+                "kind": "TypeDiscriminator",
+                "abstractKey": "__isActor"
+              },
+              {
                 "alias": null,
                 "args": null,
                 "kind": "ScalarField",
                 "name": "id",
                 "storageKey": null
-              },
-              {
-                "kind": "TypeDiscriminator",
-                "abstractKey": "__isActor"
               },
               {
                 "alias": null,
@@ -146,16 +146,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "3f46ff0d6639f39cf854f8a568c83e15",
+    "cacheID": "d7339537afd4dc53456d40e1a14acf53",
     "id": null,
     "metadata": {},
     "name": "ContactsListRefetchQuery",
     "operationKind": "query",
-    "text": "query ContactsListRefetchQuery(\n  $search: String = null\n) {\n  viewer {\n    ...ContactsListFragment_40zwac\n  }\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment_40zwac on Viewer {\n  contacts(search: $search) {\n    __typename\n    id\n    ...ContactRowFragment\n  }\n}\n\nfragment ImageFragment on Image {\n  url\n  altText\n}\n"
+    "text": "query ContactsListRefetchQuery(\n  $search: String = null\n) {\n  viewer {\n    ...ContactsListFragment_40zwac\n  }\n}\n\nfragment ContactRowFragment on Actor {\n  __isActor: __typename\n  name\n  profilePicture {\n    ...ImageFragment\n  }\n}\n\nfragment ContactsListFragment_40zwac on Viewer {\n  contacts(search: $search) {\n    __typename\n    ...ContactsList_contacts\n    id\n  }\n}\n\nfragment ContactsList_contacts on Actor {\n  __isActor: __typename\n  id\n  ...ContactRowFragment\n}\n\nfragment ImageFragment on Image {\n  url\n  altText\n}\n"
   }
 };
 })();
 
-(node as any).hash = "a58a5b12c5813e115be4ed129437cb3a";
+(node as any).hash = "0e5fae5a9f93eab60e868067d6df35f8";
 
 export default node;
